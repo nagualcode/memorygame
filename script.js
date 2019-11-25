@@ -21,6 +21,7 @@ document.querySelector("#btnJogar").addEventListener("click", (ev)=>{
     reStart(); 
 });
     function reStart () {
+      if(typeof esconde !== 'undefined'){ if (esconde === 'aguardando') { clearTimeout(escondetimer);}}; // Limpa o timer das cartas de um jogo anterior, caso exista.
     $('#tabuleiro').empty();
     geraCartas();
     $(".card").addClass("virada");
@@ -29,7 +30,7 @@ document.querySelector("#btnJogar").addEventListener("click", (ev)=>{
     let srcprimeira, srcsegunda = 'primeira';
     let idprimeira, idsegunda, ultimorecorde = 0;
     let contamatch = 0;
-    let esconde = 'inicio';
+   // let esconde = 'inicio';
     esconde = 'aguardando';
     ultimorecorde = localStorage.getItem('recorde');
     if (ultimorecorde === undefined || ultimorecorde === null) { ultimorecorde = 9999; };
