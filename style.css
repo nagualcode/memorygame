@@ -1,0 +1,90 @@
+body {
+    background-color: darkcyan;
+}
+
+.botoes {
+    font-size: 1em;
+}
+.header {
+    text-align: center;
+    padding: 20px;
+}
+.footer {
+    text-align: center;
+    padding: 20px;
+}
+
+.btngreen {
+    background-color: chartreuse;
+    font-size: 2em;
+}
+
+.noclick {
+    pointer-events: none;
+    width: 12em;
+}
+
+#tabuleiro {
+    box-sizing: border-box;
+    position: relative;
+    height: 40vw;
+    width: 40vw;
+    margin:auto ;
+}
+
+.card{
+    float: left;
+    box-sizing: border-box;
+    width: 10vw;
+    height: 10vw;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border-style: double;
+    margin:0 auto ;
+    background-color: silver;
+}
+
+.card:hover {
+    border:5px solid purple;
+}
+
+
+.front {
+    position: relative;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    margin:0 auto ;
+ 
+}
+
+.front img {
+
+    max-width: 90%;
+    max-height: 90%;
+     }
+     
+.back {
+    position: absolute;
+    transform: rotateY(180deg);
+    top: 0px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    margin:0 auto ;
+    background-color: snow;
+    height: 100%;
+    width: 100%;
+  }
+
+  .back img {
+ max-width: 90%;
+ max-height: 90%;
+  }
+
+.card.virada {
+    transform: rotateY(180deg);
+  }
+
+  .card.permanente {
+    transform: rotateY(180deg);
+  }

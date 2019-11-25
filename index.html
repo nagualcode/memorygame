@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo da Memória</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header"><button id="btnJogar" class="botoes btngreen">Play!</button></div>
+  <div id="tabuleiro"></div>
+  <div class="footer"><button class="botoes noclick" id="btnTimer"><span id="seconds">00</span>:<span id="tens">00</span></button><button class="botoes noclick" id="btnRecord">Record</button></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script charset="utf8">
+  var app = { nrComponentes:0 };
+  app.getComponente = function(nome) {
+    if (!app[nome]) {
+      app[nome] = {};
+      app[app.nrComponentes++] = nome;
+    }
+    return app[nome];
+  };
+</script>
+<script src="script.js" charset="utf8"></script>
+</body>
+</html>
