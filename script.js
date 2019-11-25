@@ -31,9 +31,9 @@ document.querySelector("#btnJogar").addEventListener("click", (ev)=>{
     let contamatch = 0;
     let esconde = 'inicio';
     esconde = 'aguardando';
-    ultimorecorde = 9999;
     ultimorecorde = localStorage.getItem('recorde');
-    $('#btnRecord').html('Record: '+ultimorecorde+'s');
+    if (ultimorecorde === undefined || ultimorecorde === null) { ultimorecorde = 9999; };
+    $('#btnRecord').html('Best: '+ultimorecorde+'s');
     escondetimer = setTimeout(escondeCartas, 3000);
     $('.card').off('click').click(function(){ 
         if (!$(this).hasClass('permanente')) {   //Ignora caso seja carta de match.        
@@ -51,12 +51,12 @@ document.querySelector("#btnJogar").addEventListener("click", (ev)=>{
             if (contamatch === 8) {
                 btnstopStimer();
                 window.alert('Parabéns! Você completou em: '+seconds+' segundos.');
-                if (seconds < localStorage.getItem('recorde')) {
-                    window.alert('Novo Recorde! '+seconds);
-                    $('#btnRecord').html('Record: '+ultimorecorde+'s');
+                if (seconds < ultimorecorde) {
+                  $('#btnRecord').html('Best: '+seconds+'s');
+                    window.alert('Novo Recorde! '+seconds);            
                 localStorage.setItem('recorde', seconds);
-                }
-            }
+                };
+            };
            } else {
             //Não deu match (mas pode ser a primeira carta ainda... )
                if(typeof srcprimeira === 'undefined'){  // Era a primeira carta, agora escolha a segunda.
@@ -65,9 +65,9 @@ document.querySelector("#btnJogar").addEventListener("click", (ev)=>{
                 esconde = 'aguardando';
                 escondetimer = setTimeout(escondeCartas, 1500);
                 srcprimeira = (function () { return; })();  //Volta a variavel de primeira carta pra undefined.
-                 }   
-            }
-        } 
+                 };   
+            };
+        } ;
     idprimeira = idsegunda; //Seta a ID do quadrado, para ser comparada ao clicar na segunda carta.
       }});
       function deuMatch() {
@@ -78,7 +78,7 @@ document.querySelector("#btnJogar").addEventListener("click", (ev)=>{
       function escondeCartas() {
         $(".card").removeClass("virada");
         esconde = 'pronto';
-      }
+      };
   };
   let seconds = 00; 
   let tens = 00; 
@@ -103,10 +103,10 @@ document.querySelector("#btnJogar").addEventListener("click", (ev)=>{
     tens++; 
     if(tens < 9){
       appendTens.innerHTML = "0" + tens;
-    }
+    };
     if (tens > 9){
       appendTens.innerHTML = tens;  
-    }   
+    } ;  
     if (tens > 99) {
       seconds++;
       appendSeconds.innerHTML = "0" + seconds;
@@ -115,7 +115,8 @@ document.querySelector("#btnJogar").addEventListener("click", (ev)=>{
     }  
     if (seconds > 9){
       appendSeconds.innerHTML = seconds;
-    }
-  }
+    };
+  };
   $( document ).ready( reStart );
+  
 })();

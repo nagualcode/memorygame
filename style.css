@@ -1,5 +1,5 @@
 body {
-    background-color: darkcyan;
+
 }
 
 .botoes {
@@ -15,8 +15,9 @@ body {
 }
 
 .btngreen {
-    background-color: chartreuse;
+    background-color: green;
     font-size: 2em;
+    width: 12em;
 }
 
 .noclick {
@@ -42,11 +43,10 @@ body {
     cursor: pointer;
     border-style: double;
     margin:0 auto ;
-    background-color: silver;
 }
 
 .card:hover {
-    border:5px solid purple;
+    border:5px solid green;
 }
 
 
@@ -54,7 +54,8 @@ body {
     position: relative;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    margin:0 auto ;
+    background-color: white;
+
  
 }
 
@@ -62,6 +63,8 @@ body {
 
     max-width: 90%;
     max-height: 90%;
+
+    
      }
      
 .back {
@@ -70,10 +73,9 @@ body {
     top: 0px;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    margin:0 auto ;
-    background-color: snow;
     height: 100%;
     width: 100%;
+    background-color: white;
   }
 
   .back img {
