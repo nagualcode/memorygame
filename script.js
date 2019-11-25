@@ -37,13 +37,14 @@ document.querySelector("#btnJogar").addEventListener("click", (ev)=>{
     escondetimer = setTimeout(escondeCartas, 3000);
     $('.card').off('click').click(function(){ 
         if (!$(this).hasClass('permanente')) {   //Ignora caso seja carta de match.        
-        if (esconde === 'aguardando') { //Testa se o timer de virar as cartas esta aberto, par antecipar a virada.
+
+        idsegunda = $(this).attr("data-id");
+        if (idsegunda !== idprimeira) {  //Quadrados diferentes, então adquire qual é a imagem para testar se deu match.
+          if (esconde === 'aguardando') { //Testa se o timer de virar as cartas esta aberto, par antecipar a virada.
             clearTimeout(escondetimer);
             escondeCartas();
         }
         $(this).toggleClass('virada');
-        idsegunda = $(this).attr("data-id");
-        if (idsegunda !== idprimeira) {  //Quadrados diferentes, então adquire qual é a imagem para testar se deu match.
         srcsegunda = $(this).attr("data-src");
            if (srcsegunda === srcprimeira) { // deu match !
             deuMatch();
