@@ -31,6 +31,7 @@ document.querySelector("#btnJogar").addEventListener("click", (ev)=>{
     let contamatch = 0;
     let esconde = 'inicio';
     esconde = 'aguardando';
+    ultimorecorde = 0;
     ultimorecorde = localStorage.getItem('recorde');
     $('#btnRecord').html('Record: '+ultimorecorde+'s');
     escondetimer = setTimeout(escondeCartas, 3000);
